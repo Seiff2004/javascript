@@ -1,54 +1,108 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>contact us</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
-    <h1> Contact Us</h1>
-    <form action method="">
-        <label>Full Name</label>
-        <input name="Full Name" value="Seif Anbar" type="text" minlength="5" maxlength="20">
-        <label>Email</label>
-        <input name="user Email" placeholder="seifkhediv@gmail.com" type="email">
-        <label> Password</label>
-        <input name="Password" placeholder="Write ur Password" type="password">
-        <label> Birth date</label>
-        <input name="Birth date" type="date">
-        <label> City</label>
-        <select name="city">
-            <option value="CAI">cairo</option>
-            <option value="ALX">alex</option>
-            <option value="SUZ">suez</option>
-            <option value="DAM">damietta</option>
-            <option value="ASN">aswan</option>
-            <option value="SIN">sinai</option>
-        </select>
+    <div class="container">
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index2.html">History</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index3.html">Demo</a></li>
+            </ul>
+        </nav>
 
-        <label> Type </label>
-        <input name="msgtype" type="radio" value="Compliant" /> Compliant
-        <input name="msgtype" type="radio" value="Suggest" /> Suggest
+        <div class="form-container">
+            <h1>Contact Us</h1>
+            <form action="" method="">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input id="fullName" name="fullName" value="Seif Anbar" type="text" minlength="5" maxlength="20" required>
+                </div>
 
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" placeholder="seifkhediv@gmail.com" type="email" required>
+                </div>
 
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input id="password" name="password" placeholder="Write your Password" type="password" required>
+                </div>
 
-        <label> Method </label>
-        <input name="method" type="checkbox" value="phone" checked /> phone
-        <input name="method" type="checkbox" value="Email" /> Email
-        <input name="method" type="checkbox" value="Facebook" /> Facebook
+                <div class="form-group">
+                    <label for="birthDate">Birth Date</label>
+                    <input id="birthDate" name="birthDate" type="date" required>
+                </div>
 
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <select id="city" name="city" required>
+                        <option value="">Select a city</option>
+                        <option value="CAI">Cairo</option>
+                        <option value="ALX">Alexandria</option>
+                        <option value="SUZ">Suez</option>
+                        <option value="DAM">Damietta</option>
+                        <option value="ASN">Aswan</option>
+                        <option value="SIN">Sinai</option>
+                    </select>
+                </div>
 
+                <div class="form-group">
+                    <label>Message Type</label>
+                    <div class="radio-group">
+                        <label>
+                            <input name="msgType" type="radio" value="Complaint" required>
+                            Complaint
+                        </label>
+                        <label>
+                            <input name="msgType" type="radio" value="Suggestion" required>
+                            Suggestion
+                        </label>
+                    </div>
+                </div>
 
-        <label> Msg </label>
+                <div class="form-group">
+                    <label>Contact Method</label>
+                    <div class="checkbox-group">
+                        <label>
+                            <input name="method" type="checkbox" value="phone" checked>
+                            Phone
+                        </label>
+                        <label>
+                            <input name="method" type="checkbox" value="email">
+                            Email
+                        </label>
+                        <label>
+                            <input name="method" type="checkbox" value="facebook">
+                            Facebook
+                        </label>
+                    </div>
+                </div>
 
-        <textarea rows="5" placeholder="writte here..."></textarea>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Write here..." required></textarea>
+                </div>
 
+                <button type="submit">Submit</button>
+            </form>
+        </div>
 
-        <button> Submit </button>
+        <footer>
+            <div class="footer-text">
+                &copy; Seif's Copyrights
+            </div>
+        </footer>
+    </div>
 
-
-    </form>
-    <ul>
-        <a href="index2.html">Go Back </a>
-    </ul>
-
+    <script src="js/utils.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
 </body>
+</html>

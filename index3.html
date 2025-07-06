@@ -1,19 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>training</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Demo</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>hi World</h1>
-    <script src="index.js">
+    <div class="container">
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index2.html">History</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index3.html">Demo</a></li>
+            </ul>
+        </nav>
 
+        <div class="content-section">
+            <h1>JavaScript Demo</h1>
+            <p>Welcome to the JavaScript demonstration page. This page showcases various JavaScript functionalities.</p>
+            
+            <div class="form-container">
+                <h2>Math Utilities Demo</h2>
+                <button id="runMathDemo" onclick="runMathDemo()">Run Math Demo</button>
+                <div id="mathResults"></div>
+            </div>
 
+            <div class="form-container">
+                <h2>Animation Demo</h2>
+                <button id="fadeInBtn" onclick="demoFadeIn()">Fade In</button>
+                <button id="slideInBtn" onclick="demoSlideIn()">Slide In</button>
+                <button id="bounceBtn" onclick="demoBounce()">Bounce</button>
+                <div id="animationBox" style="width: 200px; height: 100px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); margin: 20px 0; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">Animation Box</div>
+            </div>
 
+            <div class="form-container">
+                <h2>Utility Functions Demo</h2>
+                <button id="notificationBtn" onclick="demoNotification()">Show Notification</button>
+                <button id="copyBtn" onclick="demoCopy()">Copy Text</button>
+                <input id="copyText" value="Hello World!" style="margin: 10px 0;">
+            </div>
+        </div>
 
+        <footer>
+            <div class="footer-text">
+                &copy; Seif's Copyrights
+            </div>
+        </footer>
+    </div>
 
+    <script src="js/utils.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/math.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        function demoFadeIn() {
+            const box = document.getElementById('animationBox');
+            Animations.fadeIn(box);
+        }
 
+        function demoSlideIn() {
+            const box = document.getElementById('animationBox');
+            box.style.transform = 'translateX(-100%)';
+            setTimeout(() => {
+                Animations.slideIn(box, 'left');
+            }, 100);
+        }
 
-</script>
-    
+        function demoBounce() {
+            const box = document.getElementById('animationBox');
+            Animations.bounceIn(box);
+        }
+
+        function demoNotification() {
+            Utils.showNotification('This is a demo notification!', 'success');
+        }
+
+        function demoCopy() {
+            const text = document.getElementById('copyText').value;
+            Utils.copyToClipboard(text).then(() => {
+                Utils.showNotification('Text copied to clipboard!', 'info');
+            });
+        }
+
+        function runMathDemo() {
+            const resultsDiv = document.getElementById('mathResults');
+            resultsDiv.innerHTML = '';
+            
+            const x = MathUtils.random() * 3;
+            const results = [
+                `Random number: ${x.toFixed(4)}`,
+                `Ceiling: ${MathUtils.ceil(x)}`,
+                `Floor: ${MathUtils.floor(x)}`,
+                `Truncate: ${MathUtils.trunc(x)}`,
+                `Round to 2 decimals: ${MathUtils.round(x, 2)}`
+            ];
+            
+            const randomArray = MathUtils.generateRandomArray(5, 1, 100);
+            results.push(`Random array: [${randomArray.join(', ')}]`);
+            results.push(`Sum: ${MathUtils.sum(randomArray)}`);
+            results.push(`Average: ${MathUtils.average(randomArray).toFixed(2)}`);
+            results.push(`Median: ${MathUtils.median(randomArray)}`);
+            
+            results.forEach(result => {
+                const p = document.createElement('p');
+                p.textContent = result;
+                p.style.margin = '5px 0';
+                resultsDiv.appendChild(p);
+            });
+        }
+    </script>
 </body>
 </html>
